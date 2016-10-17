@@ -1,0 +1,1157 @@
+1
+ 
+ 
+ 
+ 
+                                                             
+                 Copyright 2014 Siemens Product Lifecycle    
+                        Management Software Inc.             
+                         All Rights Reserved.                
+                                                             
+               This software and related documentation are   
+                 proprietary to Siemens Product Lifecycle    
+                        Management Software Inc.             
+                                                             
+              Siemens and the Siemens logo are registered    
+             trademarks of Siemens AG. NX is a trademark or  
+                registered trademark of Siemens Product      
+               Lifecycle Management Software Inc. or its     
+             subsidiaries in the United States and in other  
+             countries.  NASTRAN is a registered trademark   
+                 of the National Aeronautics and Space       
+                 Administration.  All other trademarks,      
+              registered trademarks or service marks belong  
+                      to their respective holders.           
+                                                             
+           LIMITATIONS TO U.S. GOVERNMENT RIGHTS. UNPUBLISHED
+           - RIGHTS RESERVED UNDER THE COPYRIGHT LAWS OF THE 
+            UNITED STATES. This computer software and related
+               computer software documentation have been     
+            developed exclusively at private expense and are 
+           provided subject to the following rights:  If this
+               computer software and computer  software      
+            documentation qualify as "commercial items" (as  
+             that term is defined in FAR 2.101), their use,  
+            duplication or disclosure by the U.S. Government 
+           is subject to the protections and restrictions as 
+            set forth in the Siemens commercial license for  
+            software and/or documentation, as prescribed in  
+           FAR 12.212 and FAR 27.405(b)(2)(i) (for civilian  
+             agencies) and in DFARS 227.7202-1(a) and DFARS  
+           227.7202-3(a) (for the Department of Defense), or 
+           any successor or similar regulation, as applicable
+           or as amended from time to time.  If this computer
+           software and computer documentation do not qualify
+            as "commercial items", then they are "restricted 
+           computer software" and are provided with "restric-
+            tive rights", and their use, duplication or dis- 
+            closure by the U.S. Government is subject to the 
+            protections and restrictions as set forth in FAR 
+           27.404(b) and FAR 52-227-14 (for civilian agencies
+           ), and DFARS 227.7203-5(c) and DFARS 252.227-7014 
+           (for the Department of Defense), or any successor 
+           or similar regulation, as applicable or as amended
+              from time to time.  Siemens PLM Software Inc.  
+            5800 Granite Parkway, Suite 600, Plano, TX 75024 
+
+                * * * * * * * * * * * * * * * * * * * *
+                * * * * * * * * * * * * * * * * * * * *
+                * *                                 * *
+                * *                                 * *
+                * *                                 * *
+                * *                                 * *
+                * *       N X   N a s t r a n       * *
+                * *                                 * *
+                * *        VERSION -   10.2         * *
+                * *                                 * *
+                * *          MAY  5, 2015           * *
+                * *                                 * *
+                * *                                 * *
+                * *Intel64 Family 6 Model 60 Steppi * *
+                * *                                 * *
+                * *Intel Core Processor (Haswell, n * *
+                * *                                 * *
+                * *            Windows 8            * *
+                * *                                 * *
+                * *       Compiled for X86-64       * *
+                * *                                 * *
+                * * * * * * * * * * * * * * * * * * * *
+                * * * * * * * * * * * * * * * * * * * *
+1 
+  
+                        Welcome to NX Nastran
+                        -------------------------
+  
+  
+ This "news" information can be turned off by setting "news=no" in the runtime
+ configuration (RC) file.  The "news" keyword can be set in the system RC file
+ for global, or multi-user control, and in a local file for local control.
+ Individual jobs can be controlled by setting news to yes or no on the command
+ line.
+1                                                                           OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     NASTRAN BUFFSIZE=32769 $(C:/FEMAPV1122/NASTRAN/CONF/NAST10.RCF[5])              
+     NASTRAN BUFFPOOL=5895                                                           
+     NASTRAN DIAGA=128 DIAGB=0 $(C:/FEMAPV1122/NASTRAN/CONF/NAST10.RCF[12])          
+     NASTRAN REAL=2144075776 $(PROGRAM DEFAULT)                                      
+     NASTRAN SYSTEM(319)=1                                                           
+1                                                                           OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID NXN,HA145A                                                                           
+     $ **********************************************************************        ********
+     $                                                                                       
+     $ HANDBOOK FOR AEROELASTIC ANALYSIS, EXAMPLE HA145A                                     
+     $ 3-DOF RODDEN/BELLINGER PITCH-PLUNGE-FUSELAGE AIRFOIL                                  
+     $ RBES + PLOT ELEMENTS FOR VISUALIZATION                                                
+     $ CG @ 37% OR 45%                                                                       
+     $ STRIP THEORY AERO                                                                     
+     $ LANCZOS EIG                                                                           
+     $                                                                                       
+     $ S. RANGE                                                                              
+     $ 20161017                                                                              
+     $                                                                                       
+     $ **********************************************************************        ********
+     SOL 145                                                                                 
+     GEOMCHECK, NONE                                                                         
+     CEND                                                                                    
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE     3
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                  1      TITLE = EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL                       
+                  2      SUBTI = 2-D AERO,  BRITISH (PK) FLUTTER METHOD                                          
+                  3      $LABEL = ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.37 CHORD                      
+                  4      LABEL = ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                       
+                  5        ECHO = BOTH                                                                           
+                  6        METHOD = 1                                                                            
+                  7        SVEC = ALL                                                                            
+                  8        DISP = ALL                                                                            
+                  9      FMETHOD = 3                                                                             
+                 10      CMETHOD = 20                                                                            
+                 11      OUTPUT(XYOUT)                                                                           
+                 12        CSCALE 2.0                                                                            
+                 13        PLOTTER NASTRAN                                                                       
+                 14        CURVELINESYMBOL = 1                                                                   
+                 15        YTTITLE = DAMPING G                                                                   
+                 16        YBTITLE = FREQUENCY F HZ                                                              
+                 17        XTITLE = VELOCITY V (FT/SEC)                                                          
+                 18        XTGRID LINES = YES                                                                    
+                 19        XBGRID LINES = YES                                                                    
+                 20        YTGRID LINES = YES                                                                    
+                 21        YBGRID LINES = YES                                                                    
+                 22        UPPER TICS = -1                                                                       
+                 23        TRIGHT TICS = -1                                                                      
+                 24        BRIGHT TICS = -1                                                                      
+                 25        XYPLOT VG / 1(G,F) 2(G,F) 3(G,F)                                                      
+                 26      BEGIN BULK                                                                              
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE     4
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0                                             I N P U T   B U L K   D A T A   E C H O                                               
+                                                                                                                                    
+                              .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                              PARAM,POST,-1                                                                   
+                              PARAM,OGEOM,NO                                                                  
+                              PARAM,AUTOSPC,YES                                                               
+                              PARAM,GRDPNT,0                                                                  
+                              CORD2C         1       0      0.      0.      0.      0.      0.      1.+FEMAPC1
+                              +FEMAPC1      1.      0.      1.                                                
+                              CORD2S         2       0      0.      0.      0.      0.      0.      1.+FEMAPC2
+                              +FEMAPC2      1.      0.      1.                                                
+                              $ FEMAP WITH NX NASTRAN FUNCTION 10 : MKAERO                                    
+                              MKAERO2       0.    .001      0.      .1      0.      .2      0.      .3        
+                              MKAERO2       0.      .4      0.      .5      0.      .6      0.      .7        
+                              MKAERO2       0.      .8      0.      .9      0.      1.      0.     1.1        
+                              MKAERO2       0.     1.3      0.     1.5      0.      2.      0.      5.        
+                              AERO           0      0.      6. .002378       0       0                        
+                              FLUTTER        3      PK       1       2       3       L       3    .001        
+                              $ DENSITY-----------------------------------------------------------------------
+                              $ FEMAP WITH NX NASTRAN FUNCTION 1 : DENSITY                                    
+                              FLFACT         1      1.                                                        
+                              $ MACH NO-----------------------------------------------------------------------
+                              $ FEMAP WITH NX NASTRAN FUNCTION 2 : MACH                                       
+                              FLFACT         2      0.                                                        
+                              $ VELOCITY----------------------------------------------------------------------
+                              $ FEMAP WITH NX NASTRAN FUNCTION 3 : VELOCITY                                   
+                              FLFACT         3   -290.   -280.   -240.   -230.     20.     40.     60.+       
+                              +            80.    100.    120.    140.    160.    170.    180.    190.+       
+                              +           200.    210.    220.    260.    300.                                
+                              EIGRL          1                       3       0                    MASS        
+                              EIGC          20    CLAN                                                +       
+                              +                                                              3                
+                              GRID         100       0      0.      0.      0.       0    1246                
+                              GRID         101       0      0.      .5      0.       0                        
+                              GRID         102       0      0.      0.      0.       0   12456                
+                              GRID         103       0      0.     -.5      0.       0                        
+                              GRID         201       0    -2.4      .5      0.       0                        
+                              GRID         203       0    -2.4     -.5      0.       0                        
+                              GRID         301       0     3.6      .5      0.       0                        
+                              GRID         303       0     3.6     -.5      0.       0                        
+                              RBE2         101     100  123456     101                                        
+                              CELAS2       103  134.47     100       3     102       3  .40341                
+                              RBE2         104     100  123456     103                                        
+                              CELAS2       105   1891.     100       5                  2.2692                
+                              CONM1        110     100       0      0.      0.      0.      0.      0.+       
+                              $ C.G. 37%                                                                      
+                              $+         1.3447      0.      0.      0.      0.      0.      0.  .24205+      
+                              $ C.G. 45%                                                                      
+                              +         1.3447      0.      0.      0.      0.      0.      0. -.40342+       
+                              +             0.  3.0256      0.      0.      0.      0.      0.      0.        
+                              CONM2        111     102       0  1.3447      0.      0.      0.                
+                              RBE2         201     101  123456     201                                        
+                              RBE2         203     103  123456     203                                        
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE     5
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0                                             I N P U T   B U L K   D A T A   E C H O                                               
+                                                                                                                                    
+                              .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                              PLOTEL       204     201     203                                                
+                              RBE2         301     101  123456     301                                        
+                              RBE2         303     103  123456     303                                        
+                              PLOTEL       304     301     303                                                
+                              $       PID     CLA     LCLA    CIRC    LCIRC   DOC1    CAOC1   GAPOC1  +PAER   
+                              PAERO4  1000    0       0       0       0       0.      0.      0.              
+                              $       EID     PID     CP      NSPAN   LSPAN                                   
+                              CAERO4  1000    1000            1                                       +CA1    
+                              $       X1      Y1      Z1      X12     X4      Y4      Z4      X43             
+                              +CA1    -2.4    0.      0.      6.      -2.4    1.      0.      6.              
+                              SET1        1100     100     101                                                
+                              $ FEMAP WITH NX NASTRAN AERO SPLINE 1201 : AERO SPLINE                          
+                              SPLINE2     1201    1000    1000    1000    1100      0.      1.        +       
+                              +             0.      0.            BOTH                                        
+                              ENDDATA
+0                             INPUT BULK DATA ENTRY COUNT =          65
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE     6
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0                                                 S O R T E D   B U L K   D A T A   E C H O                                         
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                    1-        AERO    0       0.      6.      .002378 0       0                               
+                    2-        CAERO4  1000    1000            1                                       +CA1    
+                    3-        +CA1    -2.4    0.      0.      6.      -2.4    1.      0.      6.              
+                    4-        CELAS2  103     134.47  100     3       102     3       .40341                  
+                    5-        CELAS2  105     1891.   100     5                       2.2692                  
+                    6-        CONM1   110     100     0       0.      0.      0.      0.      0.      +0000006
+                    7-        +00000061.3447  0.      0.      0.      0.      0.      0.      -.40342 +0000007
+                    8-        +00000070.      3.0256  0.      0.      0.      0.      0.      0.       0000008
+                    9-        CONM2   111     102     0       1.3447  0.      0.      0.                      
+                   10-        CORD2C  1       0       0.      0.      0.      0.      0.      1.      +FEMAPC1
+                   11-        +FEMAPC11.      0.      1.                                                      
+                   12-        CORD2S  2       0       0.      0.      0.      0.      0.      1.      +FEMAPC2
+                   13-        +FEMAPC21.      0.      1.                                                      
+                   14-        EIGC    20      CLAN                                                    +0000004
+                   15-        +0000004                                                       3         0000005
+                   16-        EIGRL   1                       3       0                       MASS            
+                   17-        FLFACT  1       1.                                                              
+                   18-        FLFACT  2       0.                                                              
+                   19-        FLFACT  3       -290.   -280.   -240.   -230.   20.     40.     60.     +0000001
+                   20-        +000000180.     100.    120.    140.    160.    170.    180.    190.    +0000002
+                   21-        +0000002200.    210.    220.    260.    300.                             0000003
+                   22-        FLUTTER 3       PK      1       2       3       L       3       .001            
+                   23-        GRID    100     0       0.      0.      0.      0       1246                    
+                   24-        GRID    101     0       0.      .5      0.      0                               
+                   25-        GRID    102     0       0.      0.      0.      0       12456                   
+                   26-        GRID    103     0       0.      -.5     0.      0                               
+                   27-        GRID    201     0       -2.4    .5      0.      0                               
+                   28-        GRID    203     0       -2.4    -.5     0.      0                               
+                   29-        GRID    301     0       3.6     .5      0.      0                               
+                   30-        GRID    303     0       3.6     -.5     0.      0                               
+                   31-        MKAERO2 0.      1.3     0.      1.5     0.      2.      0.      5.              
+                   32-        MKAERO2 0.      .001    0.      .1      0.      .2      0.      .3              
+                   33-        MKAERO2 0.      .8      0.      .9      0.      1.      0.      1.1             
+                   34-        MKAERO2 0.      .4      0.      .5      0.      .6      0.      .7              
+                   35-        PAERO4  1000    0       0       0       0       0.      0.      0.              
+                   36-        PARAM   AUTOSPC YES                                                             
+                   37-        PARAM   GRDPNT  0                                                               
+                   38-        PARAM   OGEOM   NO                                                              
+                   39-        PARAM   POST    -1                                                              
+                   40-        PLOTEL  204     201     203                                                     
+                   41-        PLOTEL  304     301     303                                                     
+                   42-        RBE2    101     100     123456  101                                             
+                   43-        RBE2    104     100     123456  103                                             
+                   44-        RBE2    201     101     123456  201                                             
+                   45-        RBE2    203     103     123456  203                                             
+                   46-        RBE2    301     101     123456  301                                             
+                   47-        RBE2    303     103     123456  303                                             
+                   48-        SET1    1100    100     101                                                     
+                   49-        SPLINE2 1201    1000    1000    1000    1100    0.      1.              +0000009
+                   50-        +00000090.      0.              BOTH                                     000000A
+                              ENDDATA 
+0                       TOTAL COUNT=        51
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE     7
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0
+0
+0
+ 
+
+
+                                        M O D E L   S U M M A R Y
+
+                                   NUMBER OF GRID     POINTS   =        8
+ 
+ 
+                                   NUMBER OF CELAS2   ELEMENTS =        2
+                                   NUMBER OF CONM1    ELEMENTS =        1
+                                   NUMBER OF CONM2    ELEMENTS =        1
+                                   NUMBER OF PLOTEL   ELEMENTS =        2
+ 
+                                   NUMBER OF RBE2     ELEMENTS =        6
+ *** USER INFORMATION MESSAGE 4109 (OUTPX2)
+     THE LABEL IS NX10.2   FOR FORTRAN UNIT 12
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =        7 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =        8 RECORDS.)
+     (TOTAL DATA WRITTEN FOR TAPE LABEL =       17 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK PVT0     WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                18                 0                 0                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =       18 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =       19 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =       42 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK CASECC   WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                 1                 0               600                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      600 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =       19 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =      624 WORDS.)
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE     8
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK EQEXINS  WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                 8                 0                 0                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =       16 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =       24 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =       60 WORDS.)
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE     9
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+                           O U T P U T   F R O M   G R I D   P O I N T   W E I G H T   G E N E R A T O R
+0                                                     REFERENCE POINT =        0
+                                                                M O
+                      *  1.344700E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00 *
+                      *  0.000000E+00  1.344700E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00  2.689400E+00  0.000000E+00 -4.034200E-01  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00 -4.034200E-01  0.000000E+00  3.025600E+00  0.000000E+00 *
+                      *  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00 *
+                                                                 S
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+                               DIRECTION
+                          MASS AXIS SYSTEM (S)     MASS              X-C.G.        Y-C.G.        Z-C.G.
+                                  X            1.344700E+00      0.000000E+00  0.000000E+00  0.000000E+00
+                                  Y            1.344700E+00      0.000000E+00  0.000000E+00  0.000000E+00
+                                  Z            2.689400E+00      1.500037E-01  0.000000E+00  0.000000E+00
+                                                                I(S)
+                                           *  0.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  2.965086E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  0.000000E+00 *
+                                                                I(Q)
+                                           *  0.000000E+00                             *
+                                           *                2.965086E+00               *
+                                           *                              0.000000E+00 *
+                                                                 Q
+                                           *  1.000000E+00  0.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  1.000000E+00  0.000000E+00 *
+                                           *  0.000000E+00  0.000000E+00  1.000000E+00 *
+
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    10
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK OGPWG    WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                 0                 0                 0                 0                 0                 1
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      146 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =       24 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =      252 WORDS.)
+ *** USER INFORMATION MESSAGE - SINGULARITIES FOUND USING EIGENVALUE METHOD
+ ***       0 SINGULARITIES FOUND         0 SINGULARITIES ELIMINATED
+ *** SYSTEM INFORMATION MESSAGE 6916 (DFMSYN)
+     DECOMP ORDERING METHOD CHOSEN: DEFAULT, ORDERING METHOD USED: BEND
+ *** USER INFORMATION MESSAGE 5458 (REIG)
+     QL HOUSEHOLDER METHOD IS AUTOMATICALLY SELECTED .
+     User information:
+     Based upon automatic selection criteria the eigensolution was changed
+     to this method. To turn off this automatic selection, please set
+     system cell 359 to 0. In the case of an original Lanczos method
+     selection, setting the NE field to zero on the READ DMAP line will
+     also turn off this automatic option.
+ *** SYSTEM INFORMATION MESSAGE 6916 (DFMSYN)
+     DECOMP ORDERING METHOD CHOSEN: DEFAULT, ORDERING METHOD USED: BEND
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    11
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+ 
+                                              R E A L   E I G E N V A L U E S
+   MODE    EXTRACTION      EIGENVALUE            RADIANS             CYCLES            GENERALIZED         GENERALIZED
+    NO.       ORDER                                                                       MASS              STIFFNESS
+        1         1        2.000261E-14        1.414306E-07        2.250937E-08        1.000000E+00        2.000261E-14
+        2         2        1.981766E+02        1.407752E+01        2.240507E+00        1.000000E+00        1.981766E+02
+        3         3        6.570331E+02        2.563266E+01        4.079564E+00        1.000000E+00        6.570331E+02
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    12
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    13
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      EIGENVALUE =  2.000261E-14
+          CYCLES =  2.250937E-08         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           100      G                                    6.097788E-01                 -1.881874E-16    
+           102      G                                    6.097788E-01                                  
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    14
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      EIGENVALUE =  1.981766E+02
+          CYCLES =  2.240507E+00         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           100      G                                    5.974692E-01                 -3.698840E-02    
+           102      G                                   -6.085660E-01                                  
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    15
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      EIGENVALUE =  6.570331E+02
+          CYCLES =  4.079564E+00         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           100      G                                    2.141212E-01                  5.855910E-01    
+           102      G                                   -3.843959E-02                                  
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    16
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =    -3.59888E-04    0.00000E+00
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                   -5.60873E-08    0.00000E+00
+                    2.70892E-07    0.00000E+00
+
+
+ A ZERO FREQUENCY ROOT HAS EMERGED.  WHEN THE MACH NO., DENSITY AND VELOCITY ARE COMPATIBLE
+ IT MAY BE INTERPRETED TWO WAYS DEPENDING ON THE SIGN OF THE REAL PART:
+   1. (-) A MODE IS CRITICALLY DAMPED, OR,
+   2. (+) THE SYSTEM IS DIVERGING.
+ ONLY THE MOST CRITICAL ( I.E., MOST POSITIVE REAL ROOTS )  ARE PRINTED IN THE FLUTTER SUMMARY.
+ FOR INFORMATIONAL PURPOSES, THE REMAINING REAL ROOTS ARE PRINTED HERE.
+
+      LESS CRITICAL REAL ROOTS FOR LOOP    1      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    2.90000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.8943169E+00       -1.3046649E+02        0.0000000E+00
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =     3.23242E+00    5.04555E+00
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                   -4.66143E-02    1.73688E-01
+                   -1.75555E-02    5.98328E-02
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =     1.96902E+00    1.29876E+01
+
+   EIGENVECTOR
+                   -1.12148E-01   -3.62880E-01
+                    1.00000E+00    0.00000E+00
+                    1.29038E-01    8.40173E-02
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    17
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =    -3.52479E-04    0.00000E+00
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                   -5.22778E-08    0.00000E+00
+                    2.52535E-07    0.00000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP    2      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    2.80000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.8841801E+00       -1.2563976E+02        0.0000000E+00
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =     2.99661E+00    5.31729E+00
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                   -7.00450E-02    1.77604E-01
+                   -2.53340E-02    6.06726E-02
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =     2.30568E+00    1.29764E+01
+
+   EIGENVECTOR
+                   -8.54145E-02   -4.19375E-01
+                    1.00000E+00    0.00000E+00
+                    1.39877E-01    9.72883E-02
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =    -3.17769E-04    0.00000E+00
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                   -3.84055E-08    0.00000E+00
+                    1.85536E-07    0.00000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP    3      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    2.40000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.8293271E+00       -1.0617039E+02        0.0000000E+00
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    18
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =     1.70982E+00    6.63763E+00
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                   -2.20796E-01    1.63717E-01
+                   -7.06179E-02    5.51623E-02
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =     3.02904E+00    1.47257E+01
+
+   EIGENVECTOR
+                    1.97599E-01   -3.74206E-01
+                    1.00000E+00    0.00000E+00
+                    1.04431E-01    2.01930E-01
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =    -3.07917E-04    0.00000E+00
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                   -3.52742E-08    0.00000E+00
+                    1.70396E-07    0.00000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP    4      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    2.30000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.8106260E+00       -1.0124973E+02        0.0000000E+00
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =     1.17841E+00    7.03091E+00
+
+   EIGENVECTOR
+                    1.00000E+00    0.00000E+00
+                   -2.83472E-01    1.30500E-01
+                   -8.76408E-02    4.68066E-02
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    19
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+
+
+                                               EIGENVECTOR FROM THE PK METHOD
+   EIGENVALUE =     2.73272E+00    1.50955E+01
+
+   EIGENVECTOR
+                    2.16494E-01   -3.21085E-01
+                    1.00000E+00    0.00000E+00
+                    7.53286E-02    2.14330E-01
+
+      LESS CRITICAL REAL ROOTS FOR LOOP    5      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    2.00000E+01    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -1.4599696E-01       -3.3732110E-01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP    6      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    4.00000E+01    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -1.5234125E-01       -7.0395869E-01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP    7      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    6.00000E+01    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -1.6476387E-01       -1.1420442E+00        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP    8      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    8.00000E+01    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -1.8801303E-01       -1.7375913E+00        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP    9      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    1.00000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -2.1265399E+00       -2.4566496E+01        0.0000000E+00
+        0.0000     -1.3817919E+00       -1.5962920E+01        0.0000000E+00
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    20
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   10      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    1.20000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.0542011E+00       -4.2339779E+01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   11      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    1.40000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.3720829E+00       -5.4537594E+01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   12      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    1.60000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.5481176E+00       -6.5582458E+01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   13      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    1.70000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.6094503E+00       -7.0885872E+01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   14      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    1.80000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.6593065E+00       -7.6092346E+01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   15      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    1.90000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.7004883E+00       -8.1223618E+01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   16      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    2.00000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.7349625E+00       -8.6295059E+01        0.0000000E+00
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    21
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   17      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    2.10000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.7641499E+00       -9.1317894E+01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   18      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    2.20000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.7891049E+00       -9.6300606E+01        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   19      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    2.60000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.8600905E+00       -1.1594193E+02        0.0000000E+00
+
+      LESS CRITICAL REAL ROOTS FOR LOOP   20      MACH        VELOCITY        DENSITY
+                                              0.00000E+00    3.00000E+02    1.00000E+00
+
+         KFREQ          DAMPING                 COMPLEX EIGENVALUE
+
+        0.0000     -3.9034147E+00       -1.3528064E+02        0.0000000E+00
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    22
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = ASYMMETRIC
+       POINT =    1     MACH NUMBER =  0.0000     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.0000       9.9999996E+24     2.9000000E+02    -1.0742356E-05     0.0000000E+00    -3.5988787E-04     0.0000000E+00
+        0.0000       9.9999996E+24     2.8000000E+02    -1.0896973E-05     0.0000000E+00    -3.5247928E-04     0.0000000E+00
+        0.0000       9.9999996E+24     2.4000000E+02    -1.1461226E-05     0.0000000E+00    -3.1776936E-04     0.0000000E+00
+        0.0000       9.9999996E+24     2.3000000E+02    -1.1588727E-05     0.0000000E+00    -3.0791672E-04     0.0000000E+00
+        0.0000       9.9999996E+24     2.0000000E+01    -1.3013217E-05     0.0000000E+00    -3.0066602E-05     0.0000000E+00
+        0.0000       9.9999996E+24     4.0000000E+01    -1.2980652E-05     0.0000000E+00    -5.9982725E-05     0.0000000E+00
+        0.0000       9.9999996E+24     6.0000000E+01    -1.2926377E-05     0.0000000E+00    -8.9597888E-05     0.0000000E+00
+        0.0000       9.9999996E+24     8.0000000E+01    -1.2850396E-05     0.0000000E+00    -1.1876164E-04     0.0000000E+00
+        0.0000       9.9999996E+24     1.0000000E+02    -1.2752716E-05     0.0000000E+00    -1.4732362E-04     0.0000000E+00
+        0.0000       9.9999996E+24     1.2000000E+02    -1.2633311E-05     0.0000000E+00    -1.7513306E-04     0.0000000E+00
+        0.0000       9.9999996E+24     1.4000000E+02    -1.2492214E-05     0.0000000E+00    -2.0203990E-04     0.0000000E+00
+        0.0000       9.9999996E+24     1.6000000E+02    -1.2329413E-05     0.0000000E+00    -2.2789357E-04     0.0000000E+00
+        0.0000       9.9999996E+24     1.7000000E+02    -1.2239873E-05     0.0000000E+00    -2.4037845E-04     0.0000000E+00
+        0.0000       9.9999996E+24     1.8000000E+02    -1.2144910E-05     0.0000000E+00    -2.5254369E-04     0.0000000E+00
+        0.0000       9.9999996E+24     1.9000000E+02    -1.2044524E-05     0.0000000E+00    -2.6437046E-04     0.0000000E+00
+        0.0000       9.9999996E+24     2.0000000E+02    -1.1938708E-05     0.0000000E+00    -2.7583985E-04     0.0000000E+00
+        0.0000       9.9999996E+24     2.1000000E+02    -1.1827473E-05     0.0000000E+00    -2.8693330E-04     0.0000000E+00
+        0.0000       9.9999996E+24     2.2000000E+02    -1.1710812E-05     0.0000000E+00    -2.9763184E-04     0.0000000E+00
+        0.0000       9.9999996E+24     2.6000000E+02    -1.1189944E-05     0.0000000E+00    -3.3610189E-04     0.0000000E+00
+        0.0000       9.9999996E+24     3.0000000E+02    -1.0582319E-05     0.0000000E+00    -3.6675142E-04     0.0000000E+00
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    23
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = ASYMMETRIC
+       POINT =    2     MACH NUMBER =  0.0000     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.0522       1.9158812E+01     2.9000000E+02     1.2812971E+00     8.0302358E-01     3.2324219E+00     5.0455461E+00
+        0.0570       1.7552807E+01     2.8000000E+02     1.1271199E+00     8.4627265E-01     2.9966104E+00     5.3172879E+00
+        0.0830       1.2052497E+01     2.4000000E+02     5.1518983E-01     1.0564114E+00     1.7098194E+00     6.6376286E+00
+        0.0917       1.0904238E+01     2.3000000E+02     3.3520883E-01     1.1190034E+00     1.1784109E+00     7.0309057E+00
+        2.0871       4.7912666E-01     2.0000000E+01    -1.4504489E-02     2.2145145E+00    -1.0090921E-01     1.3914205E+01
+        1.0462       9.5581585E-01     4.0000000E+01    -3.0810699E-02     2.2201617E+00    -2.1489982E-01     1.3949688E+01
+        0.7004       1.4277122E+00     6.0000000E+01    -5.0157953E-02     2.2295101E+00    -3.5131699E-01     1.4008426E+01
+        0.5288       1.8912028E+00     8.0000000E+01    -7.4476883E-02     2.2441440E+00    -5.2507591E-01     1.4100372E+01
+        0.6860       1.4578315E+00     1.0000000E+02    -1.1117587E-01     3.6390796E+00    -1.2710187E+00     2.2865011E+01
+        0.5367       1.8632485E+00     1.2000000E+02    -1.3898748E-01     3.4167197E+00    -1.4918835E+00     2.1467884E+01
+        0.4129       2.4221561E+00     1.4000000E+02    -1.5109706E-01     3.0663714E+00    -1.4555619E+00     1.9266581E+01
+        0.3303       3.0277836E+00     1.6000000E+02     3.8935043E-02     2.8034575E+00     3.4291345E-01     1.7614643E+01
+        0.3028       3.3023994E+00     1.7000000E+02     1.1092178E-01     2.7309780E+00     9.5166671E-01     1.7159241E+01
+        0.2785       3.5903566E+00     1.8000000E+02     1.6358958E-01     2.6597068E+00     1.3669081E+00     1.6711432E+01
+        0.2574       3.8844712E+00     1.9000000E+02     2.0453665E-01     2.5948997E+00     1.6674068E+00     1.6304235E+01
+        0.2396       4.1734285E+00     2.0000000E+02     2.4206981E-01     2.5423532E+00     1.9334208E+00     1.5974076E+01
+        0.2240       4.4633160E+00     2.1000000E+02     2.7930513E-01     2.4960916E+00     2.1902277E+00     1.5683406E+01
+        0.2100       4.7618108E+00     2.2000000E+02     3.1847548E-01     2.4510343E+00     2.4523094E+00     1.5400303E+01
+        0.1569       6.3725443E+00     2.6000000E+02     4.7928229E-01     2.1645088E+00     3.2591219E+00     1.3600010E+01
+        0.1303       7.6763721E+00     3.0000000E+02     2.6617768E-01     2.0733094E+00     1.7337468E+00     1.3026988E+01
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    24
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0                                                       FLUTTER  SUMMARY
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = ASYMMETRIC
+       POINT =    3     MACH NUMBER =  0.0000     DENSITY RATIO =  1.0000E+00     METHOD = PK  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.1344       7.4429817E+00     2.9000000E+02     3.0321512E-01     2.0670450E+00     1.9690224E+00     1.2987627E+01
+        0.1390       7.1925268E+00     2.8000000E+02     3.5536477E-01     2.0652630E+00     2.3056831E+00     1.2976431E+01
+        0.1841       5.4326811E+00     2.4000000E+02     4.1139555E-01     2.3436670E+00     3.0290427E+00     1.4725695E+01
+        0.1969       5.0787883E+00     2.3000000E+02     3.6205795E-01     2.4025178E+00     2.7327166E+00     1.5095465E+01
+        3.7791       2.6461503E-01     2.0000000E+01    -1.7923677E-02     4.0097227E+00    -2.2578305E-01     2.5193830E+01
+        1.8719       5.3421593E-01     4.0000000E+01    -3.7020076E-02     3.9722998E+00    -4.6198642E-01     2.4958696E+01
+        1.2256       8.1590712E-01     6.0000000E+01    -5.8960754E-02     3.9013002E+00    -7.2264045E-01     2.4512592E+01
+        0.8939       1.1187031E+00     8.0000000E+01    -8.3417140E-02     3.7937961E+00    -9.9421233E-01     2.3837124E+01
+        0.0000       9.9999996E+24     1.0000000E+02    -2.4035934E-01     0.0000000E+00    -2.7767110E+00     0.0000000E+00
+        0.3628       2.7565939E+00     1.2000000E+02    -1.5968376E-01     2.3094435E+00    -1.1585585E+00     1.4510661E+01
+        0.3234       3.0923278E+00     1.4000000E+02    -2.7752858E-01     2.4018250E+00    -2.0941074E+00     1.5091112E+01
+        0.2657       3.7633851E+00     1.6000000E+02    -7.7426636E-01     2.2554862E+00    -5.4863114E+00     1.4171638E+01
+        0.2093       4.7778053E+00     1.7000000E+02    -1.1237571E+00     1.8876407E+00    -6.6641026E+00     1.1860396E+01
+        0.1623       6.1616721E+00     1.8000000E+02    -1.0740480E+00     1.5497898E+00    -5.2293339E+00     9.7376165E+00
+        0.1238       8.0766201E+00     1.9000000E+02    -6.8858379E-01     1.2480236E+00    -2.6997869E+00     7.8415642E+00
+        0.1143       8.7468405E+00     2.0000000E+02    -3.3785704E-01     1.2130471E+00    -1.2875394E+00     7.6217999E+00
+        0.1072       9.3258076E+00     2.1000000E+02    -8.0483720E-02     1.1946253E+00    -3.0205750E-01     7.5060520E+00
+        0.0998       1.0015039E+01     2.2000000E+02     1.3796966E-01     1.1653836E+00     5.0512910E-01     7.3223214E+00
+        0.0684       1.4619653E+01     2.6000000E+02     8.3074772E-01     9.4348526E-01     2.4623749E+00     5.9280930E+00
+        0.0478       2.0941257E+01     3.0000000E+02     1.4442295E+00     7.6000661E-01     3.4482872E+00     4.7752624E+00
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    25
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+0                             X Y - O U T P U T  S U M M A R Y  ( R E S P O N S E )
+0 SUBCASE  CURVE FRAME    CURVE ID./       XMIN-FRAME/    XMAX-FRAME/    YMIN-FRAME/      X FOR        YMAX-FRAME/      X FOR
+     ID     TYPE   NO.  PANEL  : GRID ID     ALL DATA       ALL DATA       ALL DATA       YMIN           ALL DATA       YMAX
+0       1  LOAD      1        1(  3,--)   2.000000E+01   3.000000E+02  -1.301322E-05   2.000000E+01  -1.058232E-05   3.000000E+02
+                                          2.000000E+01   3.000000E+02  -1.301322E-05   2.000000E+01  -1.058232E-05   3.000000E+02
+0       1  LOAD      1        2(  3,--)   2.000000E+01   3.000000E+02  -1.510971E-01   1.400000E+02   1.281297E+00   2.900000E+02
+                                          2.000000E+01   3.000000E+02  -1.510971E-01   1.400000E+02   1.281297E+00   2.900000E+02
+0       1  LOAD      1        3(  3,--)   2.000000E+01   3.000000E+02  -1.123757E+00   1.700000E+02   1.444229E+00   3.000000E+02
+                                          2.000000E+01   3.000000E+02  -1.123757E+00   1.700000E+02   1.444229E+00   3.000000E+02
+0       1  LOAD      1        1(--,  4)   2.000000E+01   3.000000E+02   0.000000E+00   2.900000E+02   0.000000E+00   2.900000E+02
+                                          2.000000E+01   3.000000E+02   0.000000E+00   2.900000E+02   0.000000E+00   2.900000E+02
+0       1  LOAD      1        2(--,  4)   2.000000E+01   3.000000E+02   8.030236E-01   2.900000E+02   3.639080E+00   1.000000E+02
+                                          2.000000E+01   3.000000E+02   8.030236E-01   2.900000E+02   3.639080E+00   1.000000E+02
+0       1  LOAD      1        3(--,  4)   2.000000E+01   3.000000E+02   0.000000E+00   1.000000E+02   4.009723E+00   2.000000E+01
+                                          2.000000E+01   3.000000E+02   0.000000E+00   1.000000E+02   4.009723E+00   2.000000E+01
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK OUGV1    WRITTEN ON FORTRAN UNIT  12, TRL =
+                    101                 0              1344                 0                 0                 0                 0
+     (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =    65538 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      146 WORDS.)
+     (NUMBER OF FORTRAN RECORDS WRITTEN =      134 RECORDS.)
+     (TOTAL DATA WRITTEN FOR DATA BLOCK =     3217 WORDS.)
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    26
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE = -3.598879E-04,  0.000000E+00
+                                       C O M P L E X   E I G E N V E C T O R   NO.          1
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            6.097788E-01   0.0            1.607065E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          101      G      0.0            0.0            6.097788E-01   0.0            1.607065E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          102      G      0.0            0.0            6.097788E-01   0.0            0.0            0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          103      G      0.0            0.0            6.097788E-01   0.0            1.607065E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          201      G      0.0            0.0            6.097792E-01   0.0            1.607065E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          203      G      0.0            0.0            6.097792E-01   0.0            1.607065E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          301      G      0.0            0.0            6.097782E-01   0.0            1.607065E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          303      G      0.0            0.0            6.097782E-01   0.0            1.607065E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    27
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE =  3.232422E+00,  5.045546E+00
+                                       C O M P L E X   E I G E N V E C T O R   NO.          2
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            5.781691E-01   0.0           -8.556170E-03   0.0
+                           0.0            0.0            1.165845E-01   0.0            2.861312E-02   0.0
+0          101      G      0.0            0.0            5.781691E-01   0.0           -8.556170E-03   0.0
+                           0.0            0.0            1.165845E-01   0.0            2.861312E-02   0.0
+0          102      G      0.0            0.0            6.388215E-01   0.0            0.0            0.0
+                           0.0            0.0           -1.080003E-01   0.0            0.0            0.0
+0          103      G      0.0            0.0            5.781691E-01   0.0           -8.556170E-03   0.0
+                           0.0            0.0            1.165845E-01   0.0            2.861312E-02   0.0
+0          201      G      0.0            0.0            5.576343E-01   0.0           -8.556170E-03   0.0
+                           0.0            0.0            1.852559E-01   0.0            2.861312E-02   0.0
+0          203      G      0.0            0.0            5.576343E-01   0.0           -8.556170E-03   0.0
+                           0.0            0.0            1.852559E-01   0.0            2.861312E-02   0.0
+0          301      G      0.0            0.0            6.089714E-01   0.0           -8.556170E-03   0.0
+                           0.0            0.0            1.357722E-02   0.0            2.861312E-02   0.0
+0          303      G      0.0            0.0            6.089714E-01   0.0           -8.556170E-03   0.0
+                           0.0            0.0            1.357722E-02   0.0            2.861312E-02   0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    28
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE =  1.969022E+00,  1.298763E+01
+                                       C O M P L E X   E I G E N V E C T O R   NO.          3
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            5.567136E-01   0.0            3.857531E-02   0.0
+                           0.0            0.0           -2.032865E-01   0.0            4.919979E-02   0.0
+0          101      G      0.0            0.0            5.567136E-01   0.0            3.857531E-02   0.0
+                           0.0            0.0           -2.032865E-01   0.0            4.919979E-02   0.0
+0          102      G      0.0            0.0           -6.819115E-01   0.0            0.0            0.0
+                           0.0            0.0           -2.245060E-01   0.0            0.0            0.0
+0          103      G      0.0            0.0            5.567136E-01   0.0            3.857531E-02   0.0
+                           0.0            0.0           -2.032865E-01   0.0            4.919979E-02   0.0
+0          201      G      0.0            0.0            6.492944E-01   0.0            3.857531E-02   0.0
+                           0.0            0.0           -8.520702E-02   0.0            4.919979E-02   0.0
+0          203      G      0.0            0.0            6.492944E-01   0.0            3.857531E-02   0.0
+                           0.0            0.0           -8.520702E-02   0.0            4.919979E-02   0.0
+0          301      G      0.0            0.0            4.178426E-01   0.0            3.857531E-02   0.0
+                           0.0            0.0           -3.804058E-01   0.0            4.919979E-02   0.0
+0          303      G      0.0            0.0            4.178426E-01   0.0            3.857531E-02   0.0
+                           0.0            0.0           -3.804058E-01   0.0            4.919979E-02   0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    29
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE = -3.524793E-04,  0.000000E+00
+                                       C O M P L E X   E I G E N V E C T O R   NO.          4
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            6.097788E-01   0.0            1.498157E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          101      G      0.0            0.0            6.097788E-01   0.0            1.498157E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          102      G      0.0            0.0            6.097788E-01   0.0            0.0            0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          103      G      0.0            0.0            6.097788E-01   0.0            1.498157E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          201      G      0.0            0.0            6.097792E-01   0.0            1.498157E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          203      G      0.0            0.0            6.097792E-01   0.0            1.498157E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          301      G      0.0            0.0            6.097783E-01   0.0            1.498157E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          303      G      0.0            0.0            6.097783E-01   0.0            1.498157E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    30
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE =  2.996610E+00,  5.317288E+00
+                                       C O M P L E X   E I G E N V E C T O R   NO.          5
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            5.625045E-01   0.0           -1.224450E-02   0.0
+                           0.0            0.0            1.191043E-01   0.0            2.896001E-02   0.0
+0          101      G      0.0            0.0            5.625045E-01   0.0           -1.224450E-02   0.0
+                           0.0            0.0            1.191043E-01   0.0            2.896001E-02   0.0
+0          102      G      0.0            0.0            6.533796E-01   0.0            0.0            0.0
+                           0.0            0.0           -1.104161E-01   0.0            0.0            0.0
+0          103      G      0.0            0.0            5.625045E-01   0.0           -1.224450E-02   0.0
+                           0.0            0.0            1.191043E-01   0.0            2.896001E-02   0.0
+0          201      G      0.0            0.0            5.331177E-01   0.0           -1.224450E-02   0.0
+                           0.0            0.0            1.886083E-01   0.0            2.896001E-02   0.0
+0          203      G      0.0            0.0            5.331177E-01   0.0           -1.224450E-02   0.0
+                           0.0            0.0            1.886083E-01   0.0            2.896001E-02   0.0
+0          301      G      0.0            0.0            6.065847E-01   0.0           -1.224450E-02   0.0
+                           0.0            0.0            1.484825E-02   0.0            2.896001E-02   0.0
+0          303      G      0.0            0.0            6.065847E-01   0.0           -1.224450E-02   0.0
+                           0.0            0.0            1.484825E-02   0.0            2.896001E-02   0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    31
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE =  2.305683E+00,  1.297643E+01
+                                       C O M P L E X   E I G E N V E C T O R   NO.          6
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            5.753358E-01   0.0            4.492206E-02   0.0
+                           0.0            0.0           -2.348947E-01   0.0            5.697117E-02   0.0
+0          101      G      0.0            0.0            5.753358E-01   0.0            4.492206E-02   0.0
+                           0.0            0.0           -2.348947E-01   0.0            5.697117E-02   0.0
+0          102      G      0.0            0.0           -6.660267E-01   0.0            0.0            0.0
+                           0.0            0.0           -2.594660E-01   0.0            0.0            0.0
+0          103      G      0.0            0.0            5.753358E-01   0.0            4.492206E-02   0.0
+                           0.0            0.0           -2.348947E-01   0.0            5.697117E-02   0.0
+0          201      G      0.0            0.0            6.831487E-01   0.0            4.492206E-02   0.0
+                           0.0            0.0           -9.816393E-02   0.0            5.697117E-02   0.0
+0          203      G      0.0            0.0            6.831487E-01   0.0            4.492206E-02   0.0
+                           0.0            0.0           -9.816393E-02   0.0            5.697117E-02   0.0
+0          301      G      0.0            0.0            4.136164E-01   0.0            4.492206E-02   0.0
+                           0.0            0.0           -4.399909E-01   0.0            5.697117E-02   0.0
+0          303      G      0.0            0.0            4.136164E-01   0.0            4.492206E-02   0.0
+                           0.0            0.0           -4.399909E-01   0.0            5.697117E-02   0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    32
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE = -3.177694E-04,  0.000000E+00
+                                       C O M P L E X   E I G E N V E C T O R   NO.          7
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            6.097788E-01   0.0            1.100688E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          101      G      0.0            0.0            6.097788E-01   0.0            1.100688E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          102      G      0.0            0.0            6.097788E-01   0.0            0.0            0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          103      G      0.0            0.0            6.097788E-01   0.0            1.100688E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          201      G      0.0            0.0            6.097791E-01   0.0            1.100688E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          203      G      0.0            0.0            6.097791E-01   0.0            1.100688E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          301      G      0.0            0.0            6.097784E-01   0.0            1.100688E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          303      G      0.0            0.0            6.097784E-01   0.0            1.100688E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    33
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE =  1.709819E+00,  6.637629E+00
+                                       C O M P L E X   E I G E N V E C T O R   NO.          8
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            4.627394E-01   0.0           -3.318632E-02   0.0
+                           0.0            0.0            1.096275E-01   0.0            2.624691E-02   0.0
+0          101      G      0.0            0.0            4.627394E-01   0.0           -3.318632E-02   0.0
+                           0.0            0.0            1.096275E-01   0.0            2.624691E-02   0.0
+0          102      G      0.0            0.0            7.468621E-01   0.0            0.0            0.0
+                           0.0            0.0           -1.017532E-01   0.0            0.0            0.0
+0          103      G      0.0            0.0            4.627394E-01   0.0           -3.318632E-02   0.0
+                           0.0            0.0            1.096275E-01   0.0            2.624691E-02   0.0
+0          201      G      0.0            0.0            3.830922E-01   0.0           -3.318632E-02   0.0
+                           0.0            0.0            1.726201E-01   0.0            2.624691E-02   0.0
+0          203      G      0.0            0.0            3.830922E-01   0.0           -3.318632E-02   0.0
+                           0.0            0.0            1.726201E-01   0.0            2.624691E-02   0.0
+0          301      G      0.0            0.0            5.822101E-01   0.0           -3.318632E-02   0.0
+                           0.0            0.0            1.513862E-02   0.0            2.624691E-02   0.0
+0          303      G      0.0            0.0            5.822101E-01   0.0           -3.318632E-02   0.0
+                           0.0            0.0            1.513862E-02   0.0            2.624691E-02   0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    34
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE =  3.029043E+00,  1.472569E+01
+                                       C O M P L E X   E I G E N V E C T O R   NO.          9
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            7.403218E-01   0.0            2.416550E-02   0.0
+                           0.0            0.0           -1.849454E-01   0.0            1.182483E-01   0.0
+0          101      G      0.0            0.0            7.403218E-01   0.0            2.416550E-02   0.0
+                           0.0            0.0           -1.849454E-01   0.0            1.182483E-01   0.0
+0          102      G      0.0            0.0           -4.920886E-01   0.0            0.0            0.0
+                           0.0            0.0           -2.359450E-01   0.0            0.0            0.0
+0          103      G      0.0            0.0            7.403218E-01   0.0            2.416550E-02   0.0
+                           0.0            0.0           -1.849454E-01   0.0            1.182483E-01   0.0
+0          201      G      0.0            0.0            7.983190E-01   0.0            2.416550E-02   0.0
+                           0.0            0.0            9.885056E-02   0.0            1.182483E-01   0.0
+0          203      G      0.0            0.0            7.983190E-01   0.0            2.416550E-02   0.0
+                           0.0            0.0            9.885056E-02   0.0            1.182483E-01   0.0
+0          301      G      0.0            0.0            6.533260E-01   0.0            2.416550E-02   0.0
+                           0.0            0.0           -6.106394E-01   0.0            1.182483E-01   0.0
+0          303      G      0.0            0.0            6.533260E-01   0.0            2.416550E-02   0.0
+                           0.0            0.0           -6.106394E-01   0.0            1.182483E-01   0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    35
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE = -3.079167E-04,  0.000000E+00
+                                       C O M P L E X   E I G E N V E C T O R   NO.         10
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            6.097788E-01   0.0            1.010871E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          101      G      0.0            0.0            6.097788E-01   0.0            1.010871E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          102      G      0.0            0.0            6.097788E-01   0.0            0.0            0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          103      G      0.0            0.0            6.097788E-01   0.0            1.010871E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          201      G      0.0            0.0            6.097791E-01   0.0            1.010871E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          203      G      0.0            0.0            6.097791E-01   0.0            1.010871E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          301      G      0.0            0.0            6.097784E-01   0.0            1.010871E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+0          303      G      0.0            0.0            6.097784E-01   0.0            1.010871E-07   0.0
+                           0.0            0.0            0.0            0.0            0.0            0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    36
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE =  1.178411E+00,  7.030906E+00
+                                       C O M P L E X   E I G E N V E C T O R   NO.         11
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            4.216474E-01   0.0           -4.083651E-02   0.0
+                           0.0            0.0            8.799195E-02   0.0            2.258252E-02   0.0
+0          101      G      0.0            0.0            4.216474E-01   0.0           -4.083651E-02   0.0
+                           0.0            0.0            8.799195E-02   0.0            2.258252E-02   0.0
+0          102      G      0.0            0.0            7.856589E-01   0.0            0.0            0.0
+                           0.0            0.0           -8.121704E-02   0.0            0.0            0.0
+0          103      G      0.0            0.0            4.216474E-01   0.0           -4.083651E-02   0.0
+                           0.0            0.0            8.799195E-02   0.0            2.258252E-02   0.0
+0          201      G      0.0            0.0            3.236398E-01   0.0           -4.083651E-02   0.0
+                           0.0            0.0            1.421900E-01   0.0            2.258252E-02   0.0
+0          203      G      0.0            0.0            3.236398E-01   0.0           -4.083651E-02   0.0
+                           0.0            0.0            1.421900E-01   0.0            2.258252E-02   0.0
+0          301      G      0.0            0.0            5.686588E-01   0.0           -4.083651E-02   0.0
+                           0.0            0.0            6.694898E-03   0.0            2.258252E-02   0.0
+0          303      G      0.0            0.0            5.686588E-01   0.0           -4.083651E-02   0.0
+                           0.0            0.0            6.694898E-03   0.0            2.258252E-02   0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    37
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+      COMPLEX EIGENVALUE =  2.732717E+00,  1.509546E+01
+                                       C O M P L E X   E I G E N V E C T O R   NO.         12
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0          100      G      0.0            0.0            7.456120E-01   0.0            7.123364E-03   0.0
+                           0.0            0.0           -1.498980E-01   0.0            1.255099E-01   0.0
+0          101      G      0.0            0.0            7.456120E-01   0.0            7.123364E-03   0.0
+                           0.0            0.0           -1.498980E-01   0.0            1.255099E-01   0.0
+0          102      G      0.0            0.0           -4.794482E-01   0.0            0.0            0.0
+                           0.0            0.0           -2.040295E-01   0.0            0.0            0.0
+0          103      G      0.0            0.0            7.456120E-01   0.0            7.123364E-03   0.0
+                           0.0            0.0           -1.498980E-01   0.0            1.255099E-01   0.0
+0          201      G      0.0            0.0            7.627081E-01   0.0            7.123364E-03   0.0
+                           0.0            0.0            1.513258E-01   0.0            1.255099E-01   0.0
+0          203      G      0.0            0.0            7.627081E-01   0.0            7.123364E-03   0.0
+                           0.0            0.0            1.513258E-01   0.0            1.255099E-01   0.0
+0          301      G      0.0            0.0            7.199679E-01   0.0            7.123364E-03   0.0
+                           0.0            0.0           -6.017337E-01   0.0            1.255099E-01   0.0
+0          303      G      0.0            0.0            7.199679E-01   0.0            7.123364E-03   0.0
+                           0.0            0.0           -6.017337E-01   0.0            1.255099E-01   0.0
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    38
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+ *** USER INFORMATION MESSAGE 4110 (OUTPX2)
+                                 END-OF-DATA SIMULATION ON FORTRAN UNIT 12
+                                 (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      1 WORDS.)
+                                       (NUMBER OF FORTRAN RECORDS WRITTEN =      1 RECORDS.)
+                                       (TOTAL DATA WRITTEN FOR EOF MARKER =      1 WORDS.)
+1    EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL              OCTOBER  16, 2016  NX NASTRAN  5/ 5/15   PAGE    39
+      2-D AERO,  BRITISH (PK) FLUTTER METHOD                                                                                        
+0     ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD                                                                     
+ * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     31
+
+
+
+0                                   * * * *  A N A L Y S I S  S U M M A R Y  T A B L E  * * * *
+0 SEID  PEID PROJ VERS APRCH      SEMG SEMR SEKR SELG SELR MODES DYNRED SOLLIN PVALID SOLNL LOOPID DESIGN CYCLE SENSITIVITY
+ --------------------------------------------------------------------------------------------------------------------------
+     0     0    1    1 '        '    T    T    T    F    F     T      F      T      0     F     -1            0           F
+0SEID = SUPERELEMENT ID.
+ PEID = PRIMARY SUPERELEMENT ID OF IMAGE SUPERELEMENT.
+ PROJ = PROJECT ID NUMBER.
+ VERS = VERSION ID.
+ APRCH = BLANK FOR STRUCTURAL ANALYSIS.  HEAT FOR HEAT TRANSFER ANALYSIS.
+ SEMG = STIFFNESS AND MASS MATRIX GENERATION STEP.
+ SEMR = MASS MATRIX REDUCTION STEP (INCLUDES EIGENVALUE SOLUTION FOR MODES).
+ SEKR = STIFFNESS MATRIX REDUCTION STEP.
+ SELG = LOAD MATRIX GENERATION STEP.
+ SELR = LOAD MATRIX REDUCTION STEP. 
+ MODES = T (TRUE) IF NORMAL MODES OR BUCKLING MODES CALCULATED.
+ DYNRED = T (TRUE) MEANS GENERALIZED DYNAMIC AND/OR COMPONENT MODE REDUCTION PERFORMED.
+ SOLLIN = T (TRUE) IF LINEAR SOLUTION EXISTS IN DATABASE.
+ PVALID = P-DISTRIBUTION ID OF P-VALUE FOR P-ELEMENTS
+ LOOPID = THE LAST LOOPID VALUE USED IN THE NONLINEAR ANALYSIS.  USEFUL FOR RESTARTS.
+ SOLNL = T (TRUE) IF NONLINEAR SOLUTION EXISTS IN DATABASE.
+ DESIGN CYCLE = THE LAST DESIGN CYCLE (ONLY VALID IN OPTIMIZATION).
+ SENSITIVITY = SENSITIVITY MATRIX GENERATION FLAG.
+1                                        * * * END OF JOB * * *
+ 
+ 

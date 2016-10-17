@@ -1,0 +1,109 @@
+NASTRAN SYSTEM(319)=1
+ID NXN,HA145A
+$ ******************************************************************************
+$
+$ Handbook for Aeroelastic Analysis, Example HA145A
+$ 3-DOF Rodden/Bellinger Pitch-plunge-fuselage airfoil
+$ RBEs + plot elements for visualization
+$ CG @ 37% or 45%
+$ Strip theory aero
+$ Lanczos eig
+$ 
+$ S. Range
+$ 20161017
+$
+$ ******************************************************************************
+SOL 145
+GEOMCHECK, NONE
+CEND
+TITLE = EXAMPLE HA145A: THREE DEGREE OF FREEDOM AEROELASTIC MODEL
+SUBTI = 2-D AERO,  BRITISH (PK) FLUTTER METHOD
+LABEL = ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.37 CHORD
+$LABEL = ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD
+  ECHO = BOTH
+  METHOD = 1
+  SVEC = ALL
+  DISP = ALL
+FMETHOD = 3
+CMETHOD = 20
+OUTPUT(XYOUT)
+  CSCALE 2.0
+  PLOTTER NASTRAN
+  CURVELINESYMBOL = 1
+  YTTITLE = DAMPING G
+  YBTITLE = FREQUENCY F HZ
+  XTITLE = VELOCITY V (FT/SEC)
+  XTGRID LINES = YES
+  XBGRID LINES = YES
+  YTGRID LINES = YES
+  YBGRID LINES = YES
+  UPPER TICS = -1
+  TRIGHT TICS = -1
+  BRIGHT TICS = -1
+  XYPLOT VG / 1(G,F) 2(G,F) 3(G,F)
+BEGIN BULK
+PARAM,POST,-1
+PARAM,OGEOM,NO
+PARAM,AUTOSPC,YES
+PARAM,GRDPNT,0
+CORD2C         1       0      0.      0.      0.      0.      0.      1.+FEMAPC1
++FEMAPC1      1.      0.      1.        
+CORD2S         2       0      0.      0.      0.      0.      0.      1.+FEMAPC2
++FEMAPC2      1.      0.      1.        
+$ Femap with NX Nastran Function 10 : MKAERO
+MKAERO2       0.    .001      0.      .1      0.      .2      0.      .3
+MKAERO2       0.      .4      0.      .5      0.      .6      0.      .7
+MKAERO2       0.      .8      0.      .9      0.      1.      0.     1.1
+MKAERO2       0.     1.3      0.     1.5      0.      2.      0.      5.
+AERO           0      0.      6. .002378       0       0                
+FLUTTER        3      PK       1       2       3       L       3    .001
+$ DENSITY-----------------------------------------------------------------------
+$ Femap with NX Nastran Function 1 : DENSITY
+FLFACT         1      1.                                                
+$ MACH NO-----------------------------------------------------------------------
+$ Femap with NX Nastran Function 2 : MACH
+FLFACT         2      0.                                                
+$ VELOCITY----------------------------------------------------------------------
+$ Femap with NX Nastran Function 3 : VELOCITY
+FLFACT         3   -290.   -280.   -240.   -230.     20.     40.     60.+       
++            80.    100.    120.    140.    160.    170.    180.    190.+       
++           200.    210.    220.    260.    300.                        
+EIGRL          1                       3       0                    MASS
+EIGC          20    CLAN                                                +       
++                                                              3
+GRID         100       0      0.      0.      0.       0    1246        
+GRID         101       0      0.      .5      0.       0
+GRID         102       0      0.      0.      0.       0   12456        
+GRID         103       0      0.     -.5      0.       0
+GRID         201       0    -2.4      .5      0.       0
+GRID         203       0    -2.4     -.5      0.       0
+GRID         301       0     3.6      .5      0.       0
+GRID         303       0     3.6     -.5      0.       0
+RBE2         101     100  123456     101
+CELAS2       103  134.47     100       3     102       3  .40341        
+RBE2         104     100  123456     103
+CELAS2       105   1891.     100       5                  2.2692        
+CONM1        110     100       0      0.      0.      0.      0.      0.+       
+$ C.G. 37%
++         1.3447      0.      0.      0.      0.      0.      0.  .24205+       
+$ C.G. 45%
+$+         1.3447      0.      0.      0.      0.      0.      0. -.40342+       
++             0.  3.0256      0.      0.      0.      0.      0.      0.
+CONM2        111     102       0  1.3447      0.      0.      0.                
+RBE2         201     101  123456     201
+RBE2         203     103  123456     203
+PLOTEL       204     201     203
+RBE2         301     101  123456     301
+RBE2         303     103  123456     303
+PLOTEL       304     301     303
+$       PID     CLA     LCLA    CIRC    LCIRC   DOC1    CAOC1   GAPOC1  +PAER
+PAERO4  1000    0       0       0       0       0.      0.      0.                                                  
+$       EID     PID     CP      NSPAN   LSPAN
+CAERO4  1000    1000            1                                       +CA1
+$       X1      Y1      Z1      X12     X4      Y4      Z4      X43
++CA1    -2.4    0.      0.      6.      -2.4    1.      0.      6.
+SET1        1100     100     101                                        
+$ Femap with NX Nastran Aero Spline 1201 : Aero Spline
+SPLINE2     1201    1000    1000    1000    1100      0.      1.        +       
++             0.      0.            BOTH                                
+ENDDATA
