@@ -26,7 +26,7 @@ $LABEL = ONE RIGID BODY AND TWO FLEXIBLE MODES, C.G. AT 0.45 CHORD
   DISP = ALL
 FMETHOD = 3
 CMETHOD = 20
-OUTPUT(XYOUT)
+OUTPUT(XYOUT)v 
   CSCALE 2.0
   PLOTTER NASTRAN
   CURVELINESYMBOL = 1
@@ -65,9 +65,9 @@ $ Femap with NX Nastran Function 2 : MACH
 FLFACT         2      0.                                                
 $ VELOCITY----------------------------------------------------------------------
 $ Femap with NX Nastran Function 3 : VELOCITY
-FLFACT         3   -290.   -280.   -240.   -230.     20.     40.     60.+       
-+            80.    100.    120.    140.    160.    170.    180.    190.+       
-+           200.    210.    220.    260.    300.                        
+FLFACT         3     20.     40.     60.     80.    100.    120.    140.+
++           160.    170.    180.    190.    200.    210.    220.   -230.+
++          -240.    260.   -280.   -290.    300.                        
 EIGRL          1                       3       0                    MASS
 EIGC          20    CLAN                                                +       
 +                                                              3
@@ -101,7 +101,7 @@ PAERO4  1000    0       0       0       0       0.      0.      0.
 $       EID     PID     CP      NSPAN   LSPAN
 CAERO4  1000    1000            1                                       +CA1
 $       X1      Y1      Z1      X12     X4      Y4      Z4      X43
-+CA1    -2.4    0.      0.      6.      -2.4    1.      0.      6.
++CA1    -2.4    -0.5    0.      6.      -2.4    0.5     0.      6.
 SET1        1100     100     101                                        
 $ Femap with NX Nastran Aero Spline 1201 : Aero Spline
 SPLINE2     1201    1000    1000    1000    1100      0.      1.        +       
